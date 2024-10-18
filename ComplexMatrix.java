@@ -1,3 +1,5 @@
+package src;
+
 import java.util.Scanner;
 
 public class ComplexMatrix {
@@ -71,7 +73,7 @@ public class ComplexMatrix {
     // вычитание матриц
     public ComplexMatrix subtract(ComplexMatrix other) {
         if (this.rows != other.rows || this.cols != other.cols) {
-            System.out.println("(((((((((((((((");
+            System.out.println("ОШИБОЧКА");
         }
         Complex[][] result = new Complex[this.rows][this.cols];
         for (int i = 0; i < this.rows; i++) {
@@ -85,7 +87,7 @@ public class ComplexMatrix {
     //умножение
     public ComplexMatrix multiply(ComplexMatrix other) {
         if (this.cols != other.rows) {
-            System.out.println("((((((((((((((("); // правило чтоб можно было умножить
+            System.out.println("ОШИБОЧКА"); // правило чтоб можно было умножить
         }
         Complex[][] result = new Complex[this.rows][other.cols];
         for (int i = 0; i < rows; i++) {
@@ -126,7 +128,7 @@ public class ComplexMatrix {
     //определитель
     public Complex determinant() {
         if (!isSquare()) {
-            System.out.println("(((((((((((("); //упс проблемс кент каунт детерминант
+            System.out.println("ОШИБОЧКА"); //упс проблемс кент каунт детерминант
         }
         return determinant_for_arr(this.data); 
 
@@ -167,7 +169,7 @@ public class ComplexMatrix {
     //ищем обратную
     public ComplexMatrix inverse() {
         if (!isSquare()) { //обратные бывают только для квадратных
-            System.err.println("ОШИБОЧКА");
+            System.out.println("ОШИБОЧКА");
         }
         int n = rows;
         Complex[][] tmp = new Complex[n][n*2]; //будем дописыванием единичной матрицы считать 
@@ -221,6 +223,7 @@ public class ComplexMatrix {
                 arr[i][j] = tmp;
             }
         }
+        scanner.close();
         ComplexMatrix x = new ComplexMatrix(arr);
         return x;
 
